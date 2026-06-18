@@ -1,5 +1,5 @@
 from config.settings import JOB_DESCRIPTION_FILE
-from core.jd_parser import JobDescriptionParser
+from parsers.jd_parser import JobDescriptionParser
 
 
 def main():

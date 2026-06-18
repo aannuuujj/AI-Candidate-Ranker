@@ -14,6 +14,8 @@ __pycache__/
 
 # Outputs
 outputs/
+
+# Models
 models/
 
 # Jupyter
@@ -28,5 +30,6 @@ models/
 # Large Dataset
 data/candidates.jsonl
 
-# Optional generated files
-*.csv
+# Temporary files
+jd.txt
+*.tmp

@@ -2,8 +2,7 @@ import re
 from pathlib import Path
 
 from docx import Document
-
-from core.job_requirements import JobRequirements
+from models.job_requirements import JobRequirements
 
 
 class JobDescriptionParser:
