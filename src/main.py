@@ -1,31 +1,23 @@
-from core.data_loader import CandidateDataLoader
-from config.settings import CANDIDATES_FILE
+from config.settings import JOB_DESCRIPTION_FILE
+from core.jd_parser import JobDescriptionParser
 
 
 def main():
 
-    print("=" * 60)
-    print("🚀 AI Candidate Discovery Platform")
-    print("=" * 60)
+    print("=" * 70)
+    print("AI Candidate Discovery Platform")
+    print("=" * 70)
 
-    loader = CandidateDataLoader(CANDIDATES_FILE)
+    parser = JobDescriptionParser(JOB_DESCRIPTION_FILE)
 
-    total = loader.count_candidates()
+    requirements = parser.parse()
 
-    print(f"\nTotal Candidates : {total}\n")
-
-    print("First 5 Candidates\n")
-
-    for index, candidate in enumerate(loader.stream_candidates(), start=1):
-
-        print(f"Candidate {index}")
-        print(f"ID : {candidate['candidate_id']}")
-        print(f"Headline : {candidate['profile']['headline']}")
-        print(f"Experience : {candidate['profile']['years_of_experience']} years")
-        print("-" * 50)
-
-        if index == 5:
-            break
+    print("\nJob Title        :", requirements.job_title)
+    print("Company         :", requirements.company)
+    print("Location        :", requirements.location)
+    print("Employment Type :", requirements.employment_type)
+    print("Experience Min  :", requirements.experience_min)
+    print("Experience Max  :", requirements.experience_max)
 
 
 if __name__ == "__main__":
