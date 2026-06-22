@@ -30,7 +30,10 @@ class RankingPipeline:
     - Exporting results
     """
 
-    def run(self):
+    def run(
+        self,
+        job_description_file=JOB_DESCRIPTION_FILE,
+    ):
 
         print("=" * 70)
         print("AI Candidate Discovery Platform")
@@ -40,7 +43,7 @@ class RankingPipeline:
         # Parse Job Description
         # --------------------------------------------------
 
-        parser = JobDescriptionParser(JOB_DESCRIPTION_FILE)
+        parser = JobDescriptionParser(job_description_file)
         requirements = parser.parse()
 
         print("\nJOB REQUIREMENTS")
@@ -133,5 +136,7 @@ class RankingPipeline:
             print(f"Final Score  : {candidate.match.final_score:.2f}%")
             print(f"Skill Score  : {candidate.match.skill_score:.2f}%")
             print(f"Experience   : {candidate.match.experience_score:.2f}%")
-        return ranked_candidates[:TOP_K_RESULTS]
+
         print("\nPipeline completed successfully.")
+
+        return ranked_candidates[:TOP_K_RESULTS]

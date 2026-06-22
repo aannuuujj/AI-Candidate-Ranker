@@ -33,3 +33,14 @@ data/candidates.jsonl
 # Temporary files
 jd.txt
 *.tmp
+
+# Virtual environments
+.venv/
+.venv312/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
