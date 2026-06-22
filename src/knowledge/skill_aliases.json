@@ -1,0 +1,69 @@
+{
+    "Python": [
+        "Python3",
+        "Python Programming"
+    ],
+
+    "LLM": [
+        "Large Language Models",
+        "Foundation Models",
+        "Generative AI"
+    ],
+
+    "RAG": [
+        "Retrieval Augmented Generation",
+        "Retrieval-Augmented Generation"
+    ],
+
+    "Machine Learning": [
+        "ML"
+    ],
+
+    "Deep Learning": [
+        "DL"
+    ],
+
+    "Natural Language Processing": [
+        "NLP"
+    ],
+
+    "Computer Vision": [
+        "CV"
+    ],
+
+    "Vector Database": [
+        "Pinecone",
+        "Milvus",
+        "FAISS",
+        "ChromaDB"
+    ],
+
+    "JavaScript": [
+        "JS"
+    ],
+
+    "Docker": [
+        "Docker Containers"
+    ],
+
+    "Kubernetes": [
+        "K8s"
+    ],
+
+    "Amazon Web Services": [
+        "AWS"
+    ],
+
+    "Google Cloud Platform": [
+        "GCP"
+    ],
+
+    "Microsoft Azure": [
+        "Azure"
+    ],
+
+    "CI/CD": [
+        "Continuous Integration",
+        "Continuous Deployment"
+    ]
+}

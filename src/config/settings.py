@@ -15,3 +15,13 @@ JOB_DESCRIPTION_FILE = DATA_DIR / "job_description.docx"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
 CANDIDATE_DATASET = DATA_DIR / "candidates.jsonl"
+
+# Processing Configuration
+MAX_CANDIDATES_TO_PROCESS = 100
+TOP_K_RESULTS = 10
+
+TOP_CANDIDATES_FILE = OUTPUT_DIR / "top_candidates.csv"
+
+KNOWLEDGE_DIR = PROJECT_ROOT / "src" / "knowledge"
+
+SKILL_ALIASES_FILE = KNOWLEDGE_DIR / "skill_aliases.json"
