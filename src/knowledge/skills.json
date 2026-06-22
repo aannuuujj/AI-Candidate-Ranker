@@ -1,0 +1,60 @@
+{
+  "programming_languages": [
+    "Python",
+    "Java",
+    "C++",
+    "JavaScript",
+    "TypeScript",
+    "Go",
+    "Rust"
+  ],
+
+  "ai_ml": [
+    "Machine Learning",
+    "Deep Learning",
+    "LLM",
+    "Large Language Models",
+    "RAG",
+    "Embeddings",
+    "Fine-tuning",
+    "Prompt Engineering",
+    "NLP",
+    "Computer Vision"
+  ],
+
+  "frameworks": [
+    "PyTorch",
+    "TensorFlow",
+    "Scikit-learn",
+    "FastAPI",
+    "Flask",
+    "Django",
+    "LangChain",
+    "LlamaIndex"
+  ],
+
+  "cloud": [
+    "AWS",
+    "Azure",
+    "GCP"
+  ],
+
+  "databases": [
+    "SQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Milvus",
+    "FAISS",
+    "Pinecone"
+  ],
+
+  "devops": [
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "Linux",
+    "Jenkins",
+    "GitHub Actions"
+  ]
+}

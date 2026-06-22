@@ -13,3 +13,5 @@ JOB_DESCRIPTION_FILE = DATA_DIR / "job_description.docx"
 
 # Output Folder
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
+
+CANDIDATE_DATASET = DATA_DIR / "candidates.jsonl"
