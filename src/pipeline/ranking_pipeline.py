@@ -1,3 +1,5 @@
+
+import time
 from config.settings import (
     JOB_DESCRIPTION_FILE,
     CANDIDATE_DATASET,
@@ -34,6 +36,7 @@ class RankingPipeline:
         self,
         job_description_file=JOB_DESCRIPTION_FILE,
     ):
+        pipeline_start = time.time()
 
         print("=" * 70)
         print("AI Candidate Discovery Platform")
@@ -76,7 +79,9 @@ class RankingPipeline:
 
         count = 0
 
+        print("\nStarting candidate processing...\n")
         for candidate in loader.stream_candidates():
+            candidate_start = time.time()
 
             features = feature_engine.extract(candidate)
 
@@ -84,6 +89,14 @@ class RankingPipeline:
                 requirements,
                 features,
             )
+            print(
+    f"✅ {features.candidate_id} processed in "
+    f"{time.time() - candidate_start:.2f}s"
+)
+            print(
+    f"\n🚀 Total Pipeline Time: "
+    f"{time.time() - pipeline_start:.2f}s"
+)
 
             ranked_candidate = RankedCandidate(
                 candidate=features,

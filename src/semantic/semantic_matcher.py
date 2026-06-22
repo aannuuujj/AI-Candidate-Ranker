@@ -1,30 +1,53 @@
+import time
 from sentence_transformers import SentenceTransformer, util
+
+# Load the model only once for the entire application
+_model = None
 
 
 class SemanticMatcher:
 
     def __init__(self):
 
-        self.model = SentenceTransformer(
-            "all-MiniLM-L6-v2"
-        )
+        global _model
 
-        self.cache = {}
+        if _model is None:
+
+            print("\nLoading SentenceTransformer Model...")
+
+            start = time.time()
+
+            _model = SentenceTransformer(
+                "all-MiniLM-L6-v2"
+            )
+
+            print(
+                f"✅ Semantic model loaded in "
+                f"{time.time() - start:.2f} seconds\n"
+            )
+
+        self.model = _model
+
+        self.embedding_cache = {}
 
     def get_embedding(self, text):
 
         text = text.lower().strip()
 
-        if text not in self.cache:
+        if text not in self.embedding_cache:
 
-            self.cache[text] = self.model.encode(
+            self.embedding_cache[text] = self.model.encode(
                 text,
                 convert_to_tensor=True,
             )
 
-        return self.cache[text]
+        return self.embedding_cache[text]
 
-    def similarity(self, text1, text2):
+    def similarity(
+        self,
+        text1,
+        text2,
+    ):
 
         emb1 = self.get_embedding(text1)
         emb2 = self.get_embedding(text2)
@@ -34,4 +57,4 @@ class SemanticMatcher:
             emb2,
         )
 
-        return float(score)
+        return float(score.item())
