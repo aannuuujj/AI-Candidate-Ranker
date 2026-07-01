@@ -2,6 +2,9 @@ import re
 from pathlib import Path
 
 from docx import Document
+from pypdf import PdfReader
+from PIL import Image
+import pytesseract
 
 from config.settings import PROJECT_ROOT
 from engines.skill_extraction_engine import SkillExtractionEngine
@@ -15,14 +18,53 @@ class JobDescriptionParser:
 
     def parse(self) -> JobRequirements:
 
-        # Read the Word document
-        document = Document(self.file_path)
+        extension = self.file_path.suffix.lower()
 
-        text = "\n".join(
-            p.text.strip()
-            for p in document.paragraphs
-            if p.text.strip()
-        )
+        # -----------------------------
+        # Read DOCX
+        # -----------------------------
+        if extension == ".docx":
+
+            document = Document(self.file_path)
+
+            text = "\n".join(
+                p.text.strip()
+                for p in document.paragraphs
+                if p.text.strip()
+            )
+
+        # -----------------------------
+        # Read PDF
+        # -----------------------------
+        elif extension == ".pdf":
+
+            reader = PdfReader(self.file_path)
+
+            text = ""
+
+            for page in reader.pages:
+
+                page_text = page.extract_text()
+
+                if page_text:
+                    text += page_text + "\n"
+
+        # -----------------------------
+        # Read Image (OCR)
+        # -----------------------------
+        elif extension in [".jpg", ".jpeg", ".png"]:
+
+            image = Image.open(self.file_path)
+
+            text = pytesseract.image_to_string(image)
+
+        # -----------------------------
+        # Unsupported File
+        # -----------------------------
+        else:
+            raise ValueError(
+                f"Unsupported file type: {extension}"
+            )
 
         requirements = JobRequirements()
 
