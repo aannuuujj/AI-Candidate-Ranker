@@ -130,6 +130,23 @@ streamlit run src/dashboard/app.py
 
 ---
 
+## 🌐 Live Demo
+
+🚧 **Coming Soon**
+
+The application is currently available for local execution.
+
+Run locally using:
+
+```bash
+streamlit run src/dashboard/app.py
+```
+
+Future deployment:
+- Streamlit Community Cloud
+- Render
+- Hugging Face Spaces
+
 ## 🎯 Future Enhancements
 
 - Resume Upload & Live Ranking
